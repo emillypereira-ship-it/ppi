@@ -17,35 +17,34 @@ let y = "5" + 5; //concatenação
 let z = "hello" + 5;
 
 console.log(x, y, z);
-console.log(x**2, y, z); 
+console.log(x ** 2, y, z);
 console.log(typeof x); // vai dizer tipo de variável
 // ativar o formatador prettier
 // ALT + SHIFT + F
 // Operadores relacionais
 console.log(x != 2); // '!' diferença
-console.log('5' == 5); // compara tipo OU valor
-console.log('5' === 5); //compara tipo E valor '===' igual
+console.log("5" == 5); // compara tipo OU valor
+console.log("5" === 5); //compara tipo E valor '===' igual
 
 //  operadores de incremento
- //ou '--'
+//ou '--'
 console.log(x++);
 console.log(x);
 console.log(++x);
 
 // Operadores lógicos - && (AND),|| (OR), !(NOT)
-let isExpression = (true && 5+2*3 < 10) || false;
+let isExpression = (true && 5 + 2 * 3 < 10) || false;
 console.log(isExpression);
 
 // if...else
-    // if (condition) {
-    //     // condition === true
-    // } else {
-    //     // condition === false
-    // }
+// if (condition) {
+//     // condition === true
+// } else {
+//     // condition === false
+// }
 
 // template Strings
-let text =
-`react é bom!
+let text = `react é bom!
 programar javascript \\`;
 console.log(text);
 
@@ -54,11 +53,11 @@ console.log(text);
 // }
 
 // Array
-let fruits =['banana', 'orange', 'Apple', 'mango'];
+let fruits = ["banana", "orange", "Apple", "mango"];
 // console.log(fruits.length); // tamanho
 console.log(fruits[2]); // 0,1,2,3 id.
 
-fruits.push('kiwi'); //push: fila (insere no final)
+fruits.push("kiwi"); //push: fila (insere no final)
 console.log(fruits);
 
 console.log(fruits.pop()); // retorna e remova o último elemento
@@ -67,13 +66,13 @@ console.log(fruits);
 console.log(fruits.shift()); // remove retorna o primeiro elemento
 console.log(fruits);
 
-fruits.unshift('lemon'); // insere elemento no começo da lista
+fruits.unshift("lemon"); // insere elemento no começo da lista
 console.log(fruits);
 
 // argumento 1- posição (0,1,2,3...)
 // argumento 2 quantos elementos serão removidos
 // argumento 3- lista de elementos que serão inseridos
-fruits.splice(2, 0, 'kiwi');
+fruits.splice(2, 0, "kiwi");
 console.log(fruits);
 
 fruits.splice(2, 3);
@@ -81,11 +80,11 @@ console.log(fruits);
 
 // desafio - substituir 'apple' or 'kiwi'
 
-fruits.splice(3, 1, 'kiwi');
-console.log(fruits);    
+fruits.splice(3, 1, "kiwi");
+console.log(fruits);
 
 //busca indice do elemento 'kiwi'
-            
+
 // let index = fruits.indexOF('kiwi');
 //  console.log(index);
 
@@ -183,16 +182,12 @@ const letra = "a";
 
 // find - retorna a primeira ocorrência,
 // de acordo com a condição
-let outFind = fruits3.find(
-  (fruit) => fruit[0].toLowerCase() === letra
-);
+let outFind = fruits3.find((fruit) => fruit[0].toLowerCase() === letra);
 console.log(outFind);
 
 // filter - retorna TODAS as ocorrências,
 // de acordo com a condição
-let outFilter = fruits3.filter(
-  (fruit) => fruit[0].toLowerCase() === letra
-);
+let outFilter = fruits3.filter((fruit) => fruit[0].toLowerCase() === letra);
 console.log(outFilter);
 
 // DESAFIO - Exibir o valor da soma de todos os
@@ -208,23 +203,21 @@ numbers.map((number) => {
 console.log(soma);
 
 // reduce
-console.log(
-  numbers.reduce((soma, number) => soma + number)
-);
+console.log(numbers.reduce((soma, number) => soma + number));
 
 // Object
 const pessoa = {
-  nome: 'Zé Vaqueiro',
+  nome: "Zé Vaqueiro",
   idade: 25,
-  profissao: 'Cantor/Compositor'
+  profissao: "Cantor/Compositor",
 };
 
 console.log(pessoa.nome);
-console.log(pessoa['nome']);
+console.log(pessoa["nome"]);
 console.log(Object.keys(pessoa));
 console.log(Object.values(pessoa));
 
-const pessoa2 = { ...pessoa, hobby: 'vaquejada'};
+const pessoa2 = { ...pessoa, hobby: "vaquejada" };
 console.log(pessoa2);
 
 // Atribuição por desestruturação
@@ -232,7 +225,7 @@ const { nome, idade } = pessoa2;
 console.log(nome, idade);
 
 //construtor
-function Product(name, sto, ram, price, qty, category){
+function Product(name, sto, ram, price, qty, category) {
   this.name = name;
   this.sto = sto;
   this.ram = ram;
@@ -248,50 +241,89 @@ const p4 = new Product("iPhone Pro Max", 256, 16, 7000, 15, "Celular");
 const p5 = new Product("iPad Pro", 512, 16, 10000, 25, "Tablet");
 const p6 = new Product("Macbook Pro", 1024, 24, 25000, 35, "Notebook");
 
-const estoque = 
-[{...p1}, 
-{...p2},
-{...p3},
-{...p4},
-{...p5},
-{...p6}];
+const estoque = [
+  { ...p1 },
+  { ...p2 },
+  { ...p3 },
+  { ...p4 },
+  { ...p5 },
+  { ...p6 },
+];
 console.log(estoque);
 
 //desafio
 // valor total de todos os produtos em estoque
 const valorTotal = estoque
-.reduce((valor, p) => valor + p.price * p.qty, 0)
-.toFixed(2);
+  .reduce((valor, p) => valor + p.price * p.qty, 0)
+  .toFixed(2);
 console.log(`valor total: R$ ${valorTotal}`);
 
 //ordene os produtos por nome (crescente/decrescente)
 
 // Crescente
-console.log(
-    estoque.toSorted((a, b) => a.name.localeCompare(b.name))
-);
+console.log(estoque.toSorted((a, b) => a.name.localeCompare(b.name)));
 
 // Decrescente
-console.log(
-    estoque.toSorted((a, b) => b.name.localeCompare(a.name))
-);
+console.log(estoque.toSorted((a, b) => b.name.localeCompare(a.name)));
 
 //ordene os produtos por preço (crscente/descrescente)
 
 // Crescente
-console.log(
-    estoque.toSorted((a, b) => a.price - b.price)
-);
+console.log(estoque.toSorted((a, b) => a.price - b.price));
 
 // Decrescente
-console.log(
-    estoque.toSorted((a, b) => b.price - a.price)
-);
+console.log(estoque.toSorted((a, b) => b.price - a.price));
 
 // filtre produtos de acordo uma categoria
 
-let celulares = estoque.filter(
-    (produto) => produto.category === "Celular"
-);
+let celulares = estoque.filter((produto) => produto.category === "Celular");
 
 console.log(celulares);
+
+// DESAFIO 2
+// Média de notas e filtro de aprovados
+const alunos = [
+  { nome: "Ana", notas: [8, 7, 9] },
+  { nome: "Bruno", notas: [5, 6, 5] },
+  { nome: "Carla", notas: [9, 9, 10] },
+  { nome: "Diego", notas: [6, 7, 8] },
+];
+
+
+const aprovados = alunos
+  .map(aluno => ({
+    nome: aluno.nome,
+    media: aluno.notas.reduce((soma, nota) => soma + nota, 0) / aluno.notas.length
+  }))
+  .filter(aluno => aluno.media >= 7)
+  .sort((a, b) => b.media - a.media);
+
+console.log(aprovados);
+
+// Questão 2 — Catálogo de filmes com busca e ordenação
+
+const filmes = [
+  { titulo: "O Senhor dos Anéis", ano: 2001, genero: "fantasia" },
+  { titulo: "Matrix", ano: 1999, genero: "ficção" },
+  { titulo: "Interestelar", ano: 2014, genero: "ficção" },
+  { titulo: "Divertida Mente", ano: 2015, genero: "animação" }
+];
+
+function buscarFilmes(genero) {
+
+  let resultado = filmes.filter(
+    filme => filme.genero === genero
+  );
+
+  resultado.sort(
+    (a, b) => b.ano - a.ano
+  );
+
+  let lista = resultado.map(
+    filme => filme.titulo + " (" + filme.ano + ") - " + filme.genero
+  );
+
+  return lista;
+}
+
+console.log(buscarFilmes("ficção"));
