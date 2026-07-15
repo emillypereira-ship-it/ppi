@@ -12,3 +12,5 @@ function NoticeList({ notices, onToggleFeatured }) {
        </main>
   );
 }
+
+export default NoticeList;

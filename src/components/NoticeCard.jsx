@@ -13,17 +13,26 @@ function NoticeCard({ notice, onToggleFeatured }) {
         <span>Data: {notice.date}</span>
       </div>
       <div className="notice-actions">
-         <button className="details">
-          Exibir Detalhes
+         {/* Exibir uma descrição completa do evento. 
+         Se ativo, texto do botão = "Fechar Detalhes". */}
+         {mostrardetalhes && (
+      <p>Exibir ua descrição completa do evento.</p>
+    )}
+     {mostrarexcluir && (
+      <p>Excluir evento da lista.</p>
+    )}
+         <button className="details"
+          onClick={() => setMostrarDetalhes(!mostrardetalhes)}>
+            {mostrardetalhes ? "Fechar Detalhes" : "Mostrar Detalhes"}
         </button>
         <button onClick={() => onToggleFeatured(notice.id)}>
           {notice.featured ? "Remover destaque" : "Destacar"}
         </button>
-         <button>
-          Excluir
+         {/* Excluir o evento da lista */}
+         <button 
+         onClick={() => setMostrarExcluir(!mostrarexcluir)}>
         </button>
       </div>
-
     </article>
   );
 }
